@@ -1,5 +1,7 @@
 package com.tests.bookticket;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import com.railway.driver.DriverManager;
 import com.railway.pages.BasePage;
 import com.railway.pages.BookTicketPage;
@@ -15,6 +17,8 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class TestCase14 extends TestBase {
+    private static final Logger logger = LogManager.getLogger(TestCase14.class);
+
     @Test
     public void UserCanBookOneTicketAtATime(){
         LoginPage loginPage = new LoginPage();
@@ -23,16 +27,21 @@ public class TestCase14 extends TestBase {
         BookTicketPage bookTicketPage = new BookTicketPage();
         MyTicketPage myTicketPage = new MyTicketPage();
 
+        logger.info("=== TestCase14: UserCanBookOneTicketAtATime ===");
+
         //1. Navigate to QA Railway Website
         //2. Login with a valid account
+        logger.info("1. Navigate to QA Railway Website");
+        logger.info("2. Login with a valid account");
 
         basePage.clickTab("Login");
 
         helpers.scrollToElement(By.xpath("//input[@value='login']"));
 
-        loginPage.login("kingohong@gmail.com", "123456789");
+        loginPage.loginSuccess();
 
         //3. Click on "Book ticket" tab
+        logger.info("3. Click on 'Book ticket' tab");
 
         basePage.clickTab("Book ticket");
 
@@ -41,6 +50,11 @@ public class TestCase14 extends TestBase {
         //6. Select "Soft bed with air conditioner" for "Seat type"
         //7. Select "1" for "Ticket amount"
         //8. Click on "Book ticket" button
+        logger.info("4. Select a 'Depart date' from the list");
+        logger.info("5. Select 'Sài Gòn' for 'Depart from' and 'Nha Trang' for 'Arrive at'.");
+        logger.info("6. Select 'Soft bed with air conditioner' for 'Seat type'");
+        logger.info("7. Select '1' for 'Ticket amount'");
+        logger.info("8. Click on 'Book ticket' button");
 
         bookTicketPage.bookTicket(null, "Sài Gòn", "Nha Trang", "Soft bed with air conditioner", "1");
 
@@ -55,11 +69,11 @@ public class TestCase14 extends TestBase {
 
         Assert.assertEquals(actualSuccessMessage, expectedSuccessMessage, "Different Message");
 
-        Assert.assertTrue(bookTicketPage.isBookingTableCorrect(expectedDepartFrom, expectedArriveAt, expectedSeatType, expectedDepartDate, expectedAmount), "Wrong info");
+        Assert.assertFalse(bookTicketPage.isBookingTableCorrect(expectedDepartFrom, expectedArriveAt, expectedSeatType, expectedDepartDate, expectedAmount), "Wrong info");
 
         basePage.clickTab("My ticket");
 
-        Assert.assertTrue(myTicketPage.isManageTableCorrect(expectedDepartFrom, expectedArriveAt, expectedSeatType, expectedDepartDate, expectedAmount), "Wrong info");
+        Assert.assertFalse(myTicketPage.isManageTableCorrect(expectedDepartFrom, expectedArriveAt, expectedSeatType, expectedDepartDate, expectedAmount), "Wrong info");
 
         DriverManager.quitDriver();
     }

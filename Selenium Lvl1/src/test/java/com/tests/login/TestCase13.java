@@ -14,19 +14,18 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class TestCase12 extends TestBase {
-    private static final Logger logger = LogManager.getLogger(TestCase12.class);
+public class TestCase13 extends TestBase {
+    private static final Logger logger = LogManager.getLogger(TestCase13.class);
 
     @Test
-    public void ErrorsDisplayWhenPasswordResetTokenIsBlank() {
+    public void ErrorsDisplayIfPasswordAndConfirmPasswordDoNotMatchWhenResettingPassword() {
         BasePage basePage = new BasePage();
         LoginPage loginPage = new LoginPage();
         Helpers helpers = new Helpers();
         ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
         MailPage mailPage = new MailPage();
         ChangePasswordPage changePasswordPage = new ChangePasswordPage();
-
-        logger.info("=== TestCase12: ErrorsDisplayWhenPasswordResetTokenIsBlank ===");
+        logger.info("=== TestCase13: ErrorsDisplayIfPasswordAndConfirmPasswordDoNotMatchWhenResettingPassword ===");
 
         //1. Navigate to QA Railway Login page
         logger.info("1. Navigate to QA Railway Login page");
@@ -73,19 +72,18 @@ public class TestCase12 extends TestBase {
             }
         }
 
-        //6. Enter new passwords and remove the Password Reset Token
+        //6. Enter different values for password fields
         //7. Click "Reset Password" button
-        logger.info("6. Enter new passwords and remove the Password Reset Token");
+        logger.info("6. Enter different values for password fields");
         logger.info("7. Click 'Reset Password' button");
 
         helpers.scrollToElement(By.xpath("//input[@value='Reset Password']"));
-        changePasswordPage.getNewPasswordTextBox().clear();
-        changePasswordPage.changePasswordWithCode("123456789", "123456789", "");
+        changePasswordPage.changePasswordWithCode("123456789", "123456", "");
 
         String actualMessage = changePasswordPage.getMessageText();
         String actualLabelErrorMessage = changePasswordPage.getLabelErrorMessageText();
-        String expectedMessage = "The password reset token is incorrect or may be expired. Visit the forgot password page to generate a new one.";
-        String expectedLabelErrorMessage = "The password reset token is invalid.";
+        String expectedMessage = "Could not reset password. Please correct the errors and try again.";
+        String expectedLabelErrorMessage = "The password confirmation did not match the new password.";
 
         Assert.assertEquals(actualMessage, expectedMessage, "Different message");
         Assert.assertEquals(actualLabelErrorMessage, expectedLabelErrorMessage, "Different label error message");

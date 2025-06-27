@@ -1,5 +1,6 @@
 package com.railway.pages;
 
+import com.railway.dataobject.Account;
 import com.railway.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -51,10 +52,18 @@ public class LoginPage {
     }
 
 
-    public void login(String username, String password) {
-        getUsernameTextBox().sendKeys(username);
-        getPasswordTextBox().sendKeys(password);
+    public void login(Account account) {
+        getUsernameTextBox().sendKeys(account.getUsername());
+        getPasswordTextBox().sendKeys(account.getPassword());
         getLoginButton().click();
+    }
+
+    public void loginSuccess() {
+        login(Account.VALID_ACCOUNT);
+    }
+
+    public void loginError() {
+        login(Account.INVALID_LENGTH_PASSWORD);
     }
 
 

@@ -1,0 +1,191 @@
+2025-06-27 11:28:34 INFO  - === TestCase01: UserCanLogIntoRailwayWithValidUsernameAndPassword ===
+2025-06-27 11:28:34 INFO  - Click tab 'Login'
+2025-06-27 11:28:34 INFO  - Scroll to Login button
+2025-06-27 11:28:34 INFO  - Enter valid Email and Password
+2025-06-27 11:28:36 INFO  - Validate welcome message
+2025-06-27 11:28:36 INFO  - Login successful. Message matches: Welcome kingohong@gmail.com
+2025-06-27 11:28:36 INFO  - Close browser - end test case
+2025-06-27 11:45:38 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 11:45:38 INFO  - 2. Click on 'Login' tab
+2025-06-27 11:45:39 INFO  - 3. Enter valid Email and invalid Password
+2025-06-27 11:45:39 INFO  - 4. Click on 'Login' button
+2025-06-27 16:24:59 INFO  - === TestCase05: SystemShowsMessageWhenUserEntersWrongPasswordSeveralTimes ===
+2025-06-27 16:24:59 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:24:59 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:25:00 INFO  - 3. Enter valid information into 'Username' textbox except 'Password' textbox.
+2025-06-27 16:25:00 INFO  - 4. Click on 'Login' button
+2025-06-27 16:25:01 INFO  - 5. Repeat step 3 three more times.
+2025-06-27 16:26:37 INFO  - === TestCase01: UserCanLogIntoRailwayWithValidUsernameAndPassword ===
+2025-06-27 16:26:37 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:37 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:26:37 INFO  - === TestCase05: SystemShowsMessageWhenUserEntersWrongPasswordSeveralTimes ===
+2025-06-27 16:26:37 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:37 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:26:37 INFO  - === TestCase02: UserCannotLoginWithBlankUsernameTextbox ===
+2025-06-27 16:26:37 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:37 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:26:37 INFO  - === TestCase03: UserCannotLogIntoRailwayWithInvalidPassword ===
+2025-06-27 16:26:37 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:37 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:26:38 INFO  - 3. Enter valid Email and Password
+2025-06-27 16:26:38 INFO  - 4. Click on 'Login' button
+2025-06-27 16:26:38 INFO  - 3. Enter valid information into 'Username' textbox except 'Password' textbox.
+2025-06-27 16:26:38 INFO  - 4. Click on 'Login' button
+2025-06-27 16:26:38 INFO  - 3. Enter valid Email and invalid Password
+2025-06-27 16:26:38 INFO  - 4. Click on 'Login' button
+2025-06-27 16:26:38 INFO  - 3. User doesn't type any words into 'Username' textbox but enter valid information into 'Password' textbox
+2025-06-27 16:26:38 INFO  - 4. Click on 'Login' button
+2025-06-27 16:26:39 INFO  - 5. Repeat step 3 three more times.
+2025-06-27 16:26:43 INFO  - === TestCase06: AdditionalPagesDisplayOnceUserLoggedIn ===
+2025-06-27 16:26:43 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:43 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:26:43 INFO  - === TestCase08: UserCannotLoginWithUnactivatedAccount ===
+2025-06-27 16:26:43 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:43 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:26:44 INFO  - 3. Login with valid account
+2025-06-27 16:26:44 INFO  - === TestCase12: ErrorsDisplayWhenPasswordResetTokenIsBlank ===
+2025-06-27 16:26:44 INFO  - 1. Navigate to QA Railway Login page
+2025-06-27 16:26:44 INFO  - 3. Enter username and password of account hasn't been activated.
+2025-06-27 16:26:44 INFO  - 4. Click on 'Login' button
+2025-06-27 16:26:45 INFO  - 2. Click on 'Forgot Password page' link
+2025-06-27 16:26:46 INFO  - 3. Enter the email address of the created account in Pre-condition
+2025-06-27 16:26:46 INFO  - 4. Click on 'Send Instructions' button
+2025-06-27 16:26:47 INFO  - === TestCase09: UserCanChangePassword ===
+2025-06-27 16:26:47 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:47 INFO  - 2. Login with valid account
+2025-06-27 16:26:48 INFO  - 5. Open mailbox and click on reset password link
+2025-06-27 16:26:48 INFO  - === TestCase07: UserCanCreateNewAccount ===
+2025-06-27 16:26:48 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:48 INFO  - 2. Click on 'Register' tab
+2025-06-27 16:26:49 INFO  - 3. Click on 'Change Password' tab
+2025-06-27 16:26:50 INFO  - 3. Enter valid information into all fields
+2025-06-27 16:26:50 INFO  - 4. Click on 'Register' button
+2025-06-27 16:26:50 INFO  - 4. Enter valid value into all fields.
+2025-06-27 16:26:50 INFO  - 5. Click on 'Change Password' button
+2025-06-27 16:26:51 INFO  - === TestCase10: UserCannotCreateAccountWithConfirmPasswordIsNotTheSameWithPassword ===
+2025-06-27 16:26:51 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:51 INFO  - 2. Click on 'Register' tab
+2025-06-27 16:26:52 INFO  - 3. Enter valid information into all fields except 'Confirm password' is not the same with 'Password'
+2025-06-27 16:26:52 INFO  - 4. Click on 'Register' button
+2025-06-27 16:26:56 INFO  - === TestCase11: UserCannotCreateAccountWhilePasswordAndPIDFieldsAreEmpty ===
+2025-06-27 16:26:56 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:56 INFO  - 2. Click on 'Register' tab
+2025-06-27 16:26:56 INFO  - === TestCase14: UserCanBookOneTicketAtATime ===
+2025-06-27 16:26:56 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:56 INFO  - 2. Login with a valid account
+2025-06-27 16:26:57 INFO  - === TestCase04: LoginPageDisplaysWhenUnLoggedUserClicksOnBookTicketTab ===
+2025-06-27 16:26:57 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:26:57 INFO  - 2. Click on 'Book ticket' tab
+2025-06-27 16:26:57 INFO  - 3. Enter valid information into all fields except 'Confirm password' is not the same with 'Password'
+2025-06-27 16:26:57 INFO  - 4. Click on 'Register' button
+2025-06-27 16:26:59 INFO  - 3. Click on 'Book ticket' tab
+2025-06-27 16:27:00 INFO  - 4. Select a 'Depart date' from the list
+2025-06-27 16:27:00 INFO  - 5. Select 'Sài Gòn' for 'Depart from' and 'Nha Trang' for 'Arrive at'.
+2025-06-27 16:27:00 INFO  - 6. Select 'Soft bed with air conditioner' for 'Seat type'
+2025-06-27 16:27:00 INFO  - 7. Select '1' for 'Ticket amount'
+2025-06-27 16:27:00 INFO  - 8. Click on 'Book ticket' button
+2025-06-27 16:27:03 INFO  - === TestCase15: UserCanOpenBookTicketPageByClickingOnBookTicketLinkInTrainTimetablePage ===
+2025-06-27 16:27:03 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:27:03 INFO  - 2. Login with a valid account
+2025-06-27 16:27:03 INFO  - === TestCase16: UserCanBookOneTicketAtATime ===
+2025-06-27 16:27:03 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:27:03 INFO  - 2. Login with a valid account
+2025-06-27 16:27:05 INFO  - 3. Click on 'Timetable' tab
+2025-06-27 16:27:06 INFO  - 3. Book a ticket
+2025-06-27 16:27:06 INFO  - 4. Click on 'book ticket' link of the route from 'Huế' to 'Sài Gòn'
+2025-06-27 16:27:07 INFO  - 6. Enter new passwords and remove the Password Reset Token
+2025-06-27 16:27:07 INFO  - 7. Click 'Reset Password' button
+2025-06-27 16:27:09 INFO  - 4. Click on'My ticket' tab
+2025-06-27 16:27:10 INFO  - 5. Click on'Cancel' button of ticket which user want to cancel.
+2025-06-27 16:27:10 INFO  - 6. Click on 'OK' button on Confirmation message 'Are you sure'
+2025-06-27 16:28:21 INFO  - === TestCase01: UserCanLogIntoRailwayWithValidUsernameAndPassword ===
+2025-06-27 16:28:21 INFO  - === TestCase03: UserCannotLogIntoRailwayWithInvalidPassword ===
+2025-06-27 16:28:21 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:21 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:21 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:28:21 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:28:21 INFO  - === TestCase02: UserCannotLoginWithBlankUsernameTextbox ===
+2025-06-27 16:28:21 INFO  - === TestCase05: SystemShowsMessageWhenUserEntersWrongPasswordSeveralTimes ===
+2025-06-27 16:28:21 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:21 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:21 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:28:21 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:28:22 INFO  - 3. Enter valid information into 'Username' textbox except 'Password' textbox.
+2025-06-27 16:28:22 INFO  - 4. Click on 'Login' button
+2025-06-27 16:28:22 INFO  - 3. Enter valid Email and Password
+2025-06-27 16:28:22 INFO  - 4. Click on 'Login' button
+2025-06-27 16:28:22 INFO  - 3. Enter valid Email and invalid Password
+2025-06-27 16:28:22 INFO  - 4. Click on 'Login' button
+2025-06-27 16:28:22 INFO  - 3. User doesn't type any words into 'Username' textbox but enter valid information into 'Password' textbox
+2025-06-27 16:28:22 INFO  - 4. Click on 'Login' button
+2025-06-27 16:28:23 INFO  - 5. Repeat step 3 three more times.
+2025-06-27 16:28:27 INFO  - === TestCase06: AdditionalPagesDisplayOnceUserLoggedIn ===
+2025-06-27 16:28:27 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:27 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:28:27 INFO  - === TestCase08: UserCannotLoginWithUnactivatedAccount ===
+2025-06-27 16:28:27 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:27 INFO  - 2. Click on 'Login' tab
+2025-06-27 16:28:27 INFO  - === TestCase12: ErrorsDisplayWhenPasswordResetTokenIsBlank ===
+2025-06-27 16:28:27 INFO  - 1. Navigate to QA Railway Login page
+2025-06-27 16:28:28 INFO  - 3. Login with valid account
+2025-06-27 16:28:28 INFO  - 3. Enter username and password of account hasn't been activated.
+2025-06-27 16:28:28 INFO  - 4. Click on 'Login' button
+2025-06-27 16:28:28 INFO  - 2. Click on 'Forgot Password page' link
+2025-06-27 16:28:29 INFO  - 3. Enter the email address of the created account in Pre-condition
+2025-06-27 16:28:29 INFO  - 4. Click on 'Send Instructions' button
+2025-06-27 16:28:29 INFO  - === TestCase13: ErrorsDisplayIfPasswordAndConfirmPasswordDoNotMatchWhenResettingPassword ===
+2025-06-27 16:28:29 INFO  - 1. Navigate to QA Railway Login page
+2025-06-27 16:28:31 INFO  - 2. Click on 'Forgot Password page' link
+2025-06-27 16:28:31 INFO  - 5. Open mailbox and click on reset password link
+2025-06-27 16:28:32 INFO  - 3. Enter the email address of the created account in Pre-condition
+2025-06-27 16:28:32 INFO  - 4. Click on 'Send Instructions' button
+2025-06-27 16:28:32 INFO  - === TestCase09: UserCanChangePassword ===
+2025-06-27 16:28:32 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:32 INFO  - 2. Login with valid account
+2025-06-27 16:28:34 INFO  - === TestCase07: UserCanCreateNewAccount ===
+2025-06-27 16:28:34 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:34 INFO  - 2. Click on 'Register' tab
+2025-06-27 16:28:34 INFO  - 5. Open mailbox and click on reset password link
+2025-06-27 16:28:35 INFO  - 3. Enter valid information into all fields
+2025-06-27 16:28:35 INFO  - 4. Click on 'Register' button
+2025-06-27 16:28:35 INFO  - 3. Click on 'Change Password' tab
+2025-06-27 16:28:35 INFO  - 4. Enter valid value into all fields.
+2025-06-27 16:28:35 INFO  - 5. Click on 'Change Password' button
+2025-06-27 16:28:42 INFO  - === TestCase10: UserCannotCreateAccountWithConfirmPasswordIsNotTheSameWithPassword ===
+2025-06-27 16:28:42 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:42 INFO  - 2. Click on 'Register' tab
+2025-06-27 16:28:42 INFO  - === TestCase11: UserCannotCreateAccountWhilePasswordAndPIDFieldsAreEmpty ===
+2025-06-27 16:28:42 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:42 INFO  - 2. Click on 'Register' tab
+2025-06-27 16:28:43 INFO  - 3. Enter valid information into all fields except 'Confirm password' is not the same with 'Password'
+2025-06-27 16:28:43 INFO  - 4. Click on 'Register' button
+2025-06-27 16:28:43 INFO  - 3. Enter valid information into all fields except 'Confirm password' is not the same with 'Password'
+2025-06-27 16:28:43 INFO  - 4. Click on 'Register' button
+2025-06-27 16:28:48 INFO  - === TestCase04: LoginPageDisplaysWhenUnLoggedUserClicksOnBookTicketTab ===
+2025-06-27 16:28:48 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:48 INFO  - 2. Click on 'Book ticket' tab
+2025-06-27 16:28:48 INFO  - === TestCase14: UserCanBookOneTicketAtATime ===
+2025-06-27 16:28:48 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:48 INFO  - 2. Login with a valid account
+2025-06-27 16:28:50 INFO  - 6. Enter new passwords and remove the Password Reset Token
+2025-06-27 16:28:50 INFO  - 7. Click 'Reset Password' button
+2025-06-27 16:28:51 INFO  - 3. Click on 'Book ticket' tab
+2025-06-27 16:28:52 INFO  - 4. Select a 'Depart date' from the list
+2025-06-27 16:28:52 INFO  - 5. Select 'Sài Gòn' for 'Depart from' and 'Nha Trang' for 'Arrive at'.
+2025-06-27 16:28:52 INFO  - 6. Select 'Soft bed with air conditioner' for 'Seat type'
+2025-06-27 16:28:52 INFO  - 7. Select '1' for 'Ticket amount'
+2025-06-27 16:28:52 INFO  - 8. Click on 'Book ticket' button
+2025-06-27 16:28:52 INFO  - 6. Enter different values for password fields
+2025-06-27 16:28:52 INFO  - 7. Click 'Reset Password' button
+2025-06-27 16:28:53 INFO  - === TestCase15: UserCanOpenBookTicketPageByClickingOnBookTicketLinkInTrainTimetablePage ===
+2025-06-27 16:28:53 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:53 INFO  - 2. Login with a valid account
+2025-06-27 16:28:55 INFO  - 3. Click on 'Timetable' tab
+2025-06-27 16:28:56 INFO  - 4. Click on 'book ticket' link of the route from 'Huế' to 'Sài Gòn'
+2025-06-27 16:28:58 INFO  - === TestCase16: UserCanBookOneTicketAtATime ===
+2025-06-27 16:28:58 INFO  - 1. Navigate to QA Railway Website
+2025-06-27 16:28:58 INFO  - 2. Login with a valid account
+2025-06-27 16:29:00 INFO  - 3. Book a ticket
+2025-06-27 16:29:02 INFO  - 4. Click on'My ticket' tab
+2025-06-27 16:29:03 INFO  - 5. Click on'Cancel' button of ticket which user want to cancel.
+2025-06-27 16:29:03 INFO  - 6. Click on 'OK' button on Confirmation message 'Are you sure'

@@ -1,5 +1,7 @@
 package com.tests.timetable;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import com.railway.driver.DriverManager;
 import com.railway.pages.*;
 import com.railway.utility.Helpers;
@@ -12,6 +14,8 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class TestCase15 extends TestBase {
+    private static final Logger logger = LogManager.getLogger(TestCase15.class);
+
     @Test
     public void UserCanOpenBookTicketPageByClickingOnBookTicketLinkInTrainTimetablePage(){
         LoginPage loginPage = new LoginPage();
@@ -20,23 +24,30 @@ public class TestCase15 extends TestBase {
         BookTicketPage bookTicketPage = new BookTicketPage();
         TimetablePage timetablePage = new TimetablePage();
 
+        logger.info("=== TestCase15: UserCanOpenBookTicketPageByClickingOnBookTicketLinkInTrainTimetablePage ===");
+
         String departStation = "Huế";
         String arriveStation = "Sài Gòn";
 
         //1. Navigate to QA Railway Website
         //2. Login with a valid account
+        logger.info("1. Navigate to QA Railway Website");
+        logger.info("2. Login with a valid account");
 
         basePage.clickTab("Login");
 
         helpers.scrollToElement(By.xpath("//input[@value='login']"));
 
-        loginPage.login("kingohong@gmail.com", "123456789");
+        loginPage.loginSuccess();
 
         //3. Click on "Timetable" tab
+        logger.info("3. Click on 'Timetable' tab");
 
         basePage.clickTab("Timetable");
 
         //4. Click on "book ticket" link of the route from "Huế" to "Sài Gòn"
+        logger.info("4. Click on 'book ticket' link of the route from 'Huế' to 'Sài Gòn'");
+
         helpers.scrollToElement(By.xpath("//tr[td[normalize-space(.)='Huế']]"));
 
         timetablePage.clickBookTicketLink(departStation, arriveStation);

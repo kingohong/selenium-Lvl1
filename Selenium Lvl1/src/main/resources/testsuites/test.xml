@@ -1,7 +1,8 @@
-<suite name="TestSuite1">
-<!--    <listeners>-->
-<!--        <listener class-name="com.tests.ultilities.AppListener"/>-->
-<!--    </listeners>-->
+<suite name="TestSuite1" parallel="classes" thread-count="4">
+    <listeners>
+        <listener class-name="com.tests.utilities.AppListener"/>
+    </listeners>
+
 
     <test name="Railway">
         <classes>
@@ -12,6 +13,8 @@
             <class name="com.tests.login.TestCase06" />
             <class name="com.tests.login.TestCase08" />
             <class name="com.tests.login.TestCase12" />
+            <class name="com.tests.login.TestCase13" />
+            <class name="com.tests.changepassword.TestCase09" />
             <class name="com.tests.register.TestCase07" />
             <class name="com.tests.register.TestCase10" />
             <class name="com.tests.register.TestCase11" />
@@ -19,8 +22,6 @@
             <class name="com.tests.bookticket.TestCase14" />
             <class name="com.tests.timetable.TestCase15" />
             <class name="com.tests.myticket.TestCase16" />
-
-
         </classes>
     </test>
 </suite>
