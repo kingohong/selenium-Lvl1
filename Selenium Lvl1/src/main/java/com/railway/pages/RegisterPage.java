@@ -1,5 +1,7 @@
 package com.railway.pages;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import com.railway.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -56,5 +58,12 @@ public class RegisterPage {
         getPasswordConfirmTextBox().sendKeys(confirmPassword);
         getPidTextBox().sendKeys(pid);
         getRegisterButton().click();
+    }
+
+    public List<String> getAllFieldErrorMessages() {
+        List<WebElement> errorElements = DriverManager.getDriver().findElements(By.cssSelector("label.validation-error"));
+        return errorElements.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 }

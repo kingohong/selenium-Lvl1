@@ -1,0 +1,117 @@
+{
+  "TestCase01": [
+    {
+      "username": "kingohong@gmail.com",
+      "password": "123456789"
+    }
+  ],
+  "TestCase02": [
+    {
+      "username": "",
+      "password": "123456789"
+    }
+  ],
+  "TestCase03": [
+    {
+      "username": "kingohong@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "TestCase05": [
+    {
+      "username": "kingohong@gmail.com",
+      "password": ""
+    }
+  ],
+  "TestCase06": [
+    {
+      "username": "kingohong@gmail.com",
+      "password": "123456789"
+    }
+  ],
+  "TestCase07": [
+    {
+      "emailPrefix": "testuser",
+      "domain": "sharklasers.com",
+      "password": "123456789",
+      "pid": "123456789"
+    }
+  ],
+  "TestCase08": [
+    {
+      "username": "123@gmail.com",
+      "password": "123456789"
+    }
+  ],
+  "TestCase09": [
+    {
+      "username": "kingohong@gmail.com",
+      "password": "123456789",
+      "oldPassword": "123456789",
+      "newPassword": "123456789",
+      "confirmPassword": "123456789"
+    }
+  ],
+  "TestCase10": [
+    {
+      "email": "kingohong@gmail.com",
+      "password": "123456789",
+      "confirmPassword": "123456",
+      "pid": "123456789"
+    }
+  ],
+  "TestCase11": [
+    {
+      "email": "kingohong@gmail.com",
+      "password": "",
+      "confirmPassword": "",
+      "pid": ""
+    }
+  ],
+  "UserCanBookOneTicketAtATime": [
+    {
+      "departFrom": "Sài Gòn",
+      "arriveAt": "Nha Trang",
+      "seatType": "Soft bed with air conditioner",
+      "ticketAmount": "1",
+      "departDate": "0"
+    },
+    {
+      "departFrom": "Huế",
+      "arriveAt": "Đà Nẵng",
+      "seatType": "Hard seat",
+      "ticketAmount": "2",
+      "departDate": "0"
+    },
+    {
+      "departFrom": "Đà Nẵng",
+      "arriveAt": "Quảng Ngãi",
+      "seatType": "Soft seat with air conditioner",
+      "ticketAmount": "1",
+      "departDate": "0"
+    }
+  ],
+  "UserCanCancelATicket": [
+    {
+      "departFrom": "Phan Thiết",
+      "arriveAt": "Nha Trang",
+      "seatType": "Soft bed with air conditioner",
+      "ticketAmount": "1",
+      "departDate": "0"
+    },
+    {
+      "departFrom": "Huế",
+      "arriveAt": "Đà Nẵng",
+      "seatType": "Hard seat",
+      "ticketAmount": "2",
+      "departDate": "0"
+    },
+    {
+      "departFrom": "Đà Nẵng",
+      "arriveAt": "Quảng Ngãi",
+      "seatType": "Soft seat with air conditioner",
+      "ticketAmount": "1",
+      "departDate": "0"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import com.railway.pages.*;
 import com.railway.utility.Helpers;
 import com.railway.utility.MailPage;
 import com.tests.base.TestBase;
+import com.tests.utilities.ReportManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -27,42 +28,43 @@ public class TestCase12 extends TestBase {
         ChangePasswordPage changePasswordPage = new ChangePasswordPage();
 
         logger.info("=== TestCase12: ErrorsDisplayWhenPasswordResetTokenIsBlank ===");
+        ReportManager.info("=== TestCase12: ErrorsDisplayWhenPasswordResetTokenIsBlank ===");
 
-        //1. Navigate to QA Railway Login page
+        // 1. Navigate to QA Railway Login page
         logger.info("1. Navigate to QA Railway Login page");
-
+        ReportManager.info("1. Navigate to QA Railway Login page");
         basePage.clickTab("Login");
 
-        //2. Click on "Forgot Password page" link
+        // 2. Click on "Forgot Password page" link
         logger.info("2. Click on 'Forgot Password page' link");
-
+        ReportManager.info("2. Click on 'Forgot Password page' link");
         loginPage.getForgotPasswordLink().click();
 
-        //3. Enter the email address of the created account in Pre-condition
-        //4. Click on "Send Instructions" button
+        // 3. Enter the email address of the created account in Pre-condition
+        // 4. Click on "Send Instructions" button
         logger.info("3. Enter the email address of the created account in Pre-condition");
+        ReportManager.info("3. Enter the email address of the created account in Pre-condition");
         logger.info("4. Click on 'Send Instructions' button");
-
+        ReportManager.info("4. Click on 'Send Instructions' button");
         forgotPasswordPage.sendEmail("testuser@sharklasers.com");
 
-        //5. Open mailbox and click on reset password link
+        // 5. Open mailbox and click on reset password link
         logger.info("5. Open mailbox and click on reset password link");
+        ReportManager.info("5. Open mailbox and click on reset password link");
 
         DriverManager.getDriver().get("https://www.guerrillamail.com/inbox");
-
         mailPage.adjustEmail("testuser");
 
         try {
-            Thread.sleep(12000);
+            Thread.sleep(12000);  // đợi nhận mail
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        mailPage.clickChangePasswordEmail();
 
+        mailPage.clickChangePasswordEmail();
         mailPage.clickResetLink();
 
         String originalTab = DriverManager.getDriver().getWindowHandle();
-
         new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10))
                 .until(driver -> driver.getWindowHandles().size() > 1);
 
@@ -73,23 +75,43 @@ public class TestCase12 extends TestBase {
             }
         }
 
-        //6. Enter new passwords and remove the Password Reset Token
-        //7. Click "Reset Password" button
+        // 6. Enter different values for password fields
+        // 7. Click "Reset Password" button
         logger.info("6. Enter new passwords and remove the Password Reset Token");
+        ReportManager.info("6. Enter new passwords and remove the Password Reset Token");
         logger.info("7. Click 'Reset Password' button");
+        ReportManager.info("7. Click 'Reset Password' button");
 
         helpers.scrollToElement(By.xpath("//input[@value='Reset Password']"));
         changePasswordPage.getNewPasswordTextBox().clear();
         changePasswordPage.changePasswordWithCode("123456789", "123456789", "");
 
+        // Verify error messages
+        logger.info("Verify error messages");
+        ReportManager.info("Verify error messages");
+
         String actualMessage = changePasswordPage.getMessageText();
-        String actualLabelErrorMessage = changePasswordPage.getLabelErrorMessageText();
         String expectedMessage = "The password reset token is incorrect or may be expired. Visit the forgot password page to generate a new one.";
+
+        String actualLabelErrorMessage = changePasswordPage.getLabelErrorMessageText();
         String expectedLabelErrorMessage = "The password reset token is invalid.";
 
-        Assert.assertEquals(actualMessage, expectedMessage, "Different message");
-        Assert.assertEquals(actualLabelErrorMessage, expectedLabelErrorMessage, "Different label error message");
+        try {
+            Assert.assertEquals(actualMessage, expectedMessage, "Different main error message");
+            ReportManager.pass("Main error message matched: " + actualMessage);
+        } catch (AssertionError e) {
+            ReportManager.fail("Expected: '" + expectedMessage + "' but got: '" + actualMessage + "'");
+            throw e;
+        }
 
-        DriverManager.quitDriver();
+        try {
+            Assert.assertEquals(actualLabelErrorMessage, expectedLabelErrorMessage, "Different label error message");
+            ReportManager.pass("Label error message matched: " + actualLabelErrorMessage);
+        } catch (AssertionError e) {
+            ReportManager.fail("Expected: '" + expectedLabelErrorMessage + "' but got: '" + actualLabelErrorMessage + "'");
+            throw e;
+        } finally {
+            DriverManager.quitDriver();
+        }
     }
 }

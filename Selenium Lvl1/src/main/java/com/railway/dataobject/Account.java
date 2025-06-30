@@ -5,7 +5,7 @@ public enum Account {
     VALID_ACCOUNT("kingohong@gmail.com", "123456789"),
     INVALID_LENGTH_PASSWORD("kingohong@gmail.com", "123456"),
     UNACTIVED_ACCOUNT("123@gmail.com", "123456789"),
-    BLANK_ACCOUNT("", ""),
+    BLANK_ACCOUNT("", "123456789"),
     BLANK_PASSWORD("kingohong@gmail.com", ""),;
 
     private final String username;
@@ -24,3 +24,4 @@ public enum Account {
         return username;
     }
 }
+
