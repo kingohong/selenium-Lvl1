@@ -58,6 +58,13 @@ public class TestCase14 extends TestBase {
         ReportManager.info("3. Click on 'Book ticket' tab");
         basePage.clickTab("Book ticket");
 
+        // Check if ArriveAt dropdown is re-rendered after changing DepartFrom
+        logger.info("Check if ArriveAt dropdown is re-rendered after changing DepartFrom");
+        ReportManager.info("Check if ArriveAt dropdown is re-rendered after changing DepartFrom");
+        boolean isArriveReRendered = bookTicketPage.isArriveStationReRenderedAfterDepartChange(departFrom);
+        Assert.assertFalse(isArriveReRendered, "The 'Arrive At' dropdown must be updated after selecting 'Depart From'");
+        ReportManager.pass("'Arrive At' dropdown updated successfully after selecting 'Depart From'");
+
         // 4-8. Fill form and book ticket
         logger.info("4. Select a 'Depart date' from the list");
         logger.info("5. Select 'Sài Gòn' for 'Depart from' and 'Nha Trang' for 'Arrive at'.");

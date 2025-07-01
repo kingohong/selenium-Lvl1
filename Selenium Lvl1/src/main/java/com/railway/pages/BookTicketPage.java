@@ -1,5 +1,6 @@
 package com.railway.pages;
 
+import org.openqa.selenium.remote.RemoteWebElement;
 import com.railway.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -84,6 +85,24 @@ public class BookTicketPage {
                 cells.get(3).getText().equals(departDate) &&
                 cells.get(6).getText().equals(amount);
     }
+    public boolean isArriveStationReRenderedAfterDepartChange(String newDepartFrom) {
+        RemoteWebElement before = (RemoteWebElement) getArriveAt();
+        String idBefore = before.getId();
 
+        Select departSelect = new Select(getDepartFrom());
+        departSelect.selectByVisibleText(newDepartFrom);
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ignored) {}
+
+        RemoteWebElement after = (RemoteWebElement) getArriveAt();
+        String idAfter = after.getId();
+
+        System.out.println("ArriveAt ID Before: " + idBefore);
+        System.out.println("ArriveAt ID After : " + idAfter);
+
+        return !idBefore.equals(idAfter);
+    }
 
 }

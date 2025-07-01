@@ -4,12 +4,14 @@ import com.railway.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class MyTicketPage {
     private final WebDriver driver = DriverManager.getDriver();
-
     private final By manageTicketTable = By.xpath("//table[@class='MyTable']//tr[td]");
     private final By cancelButton = By.xpath("//input[@value='Cancel']");
 
@@ -18,7 +20,7 @@ public class MyTicketPage {
     }
 
     public WebElement getCancelButton() {
-        return driver.findElement(cancelButton); // Lấy nút Cancel đầu tiên (nếu không truyền tham số)
+        return driver.findElement(cancelButton);
     }
 
     public boolean isManageTableCorrect(String departFrom, String arriveAt, String seatType, String departDate, String amount) {
@@ -42,6 +44,8 @@ public class MyTicketPage {
     }
 
     public void confirmCancel() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert().accept();
     }
 

@@ -1,5 +1,6 @@
 package com.tests.register;
 
+import com.railway.dataobject.Account;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.railway.driver.DriverManager;
@@ -47,9 +48,10 @@ public class TestCase11 extends TestBase {
 
         String timestamp = new SimpleDateFormat("ddMMyyyyHHmmss").format(new Date());
         String dynamicEmail = "testuser" + timestamp + "@gmail.com";
+        Account.BLANK_EXCEPT_EMAIL.setUsername(dynamicEmail);
 
         helpers.scrollToElement(By.xpath("//input[@value='Register']"));
-        registerPage.register(dynamicEmail, "", "", "");
+        registerPage.register(Account.BLANK_EXCEPT_EMAIL);
 
         // Verify general error message
         logger.info("Verify general error message");

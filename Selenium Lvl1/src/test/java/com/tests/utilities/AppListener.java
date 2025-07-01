@@ -19,7 +19,9 @@ public class AppListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        ExtentSparkReporter spark = new ExtentSparkReporter("reports/ExtentReport.html");
+        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String reportPath = "reports/ExtentReport_" + timestamp + ".html";
+        ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
         spark.config().setDocumentTitle("Automation Report");
         spark.config().setReportName("QA Railway Test Report");
 
@@ -42,9 +44,11 @@ public class AppListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         String screenshotPath = captureScreenshot(result.getName());
+        String relativePath = screenshotPath.replace("reports/", "");
         test.get().fail("Test failed: " + result.getThrowable());
-        test.get().addScreenCaptureFromPath(screenshotPath);
+        test.get().addScreenCaptureFromPath(relativePath, "Failed Screenshot");
     }
+
 
     @Override
     public void onTestSkipped(ITestResult result) {
@@ -59,7 +63,9 @@ public class AppListener implements ITestListener {
     private String captureScreenshot(String testName) {
         WebDriver driver = DriverManager.getDriver();
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String screenshotPath = "screenshots/" + testName + "_" + timestamp + ".png";
+        String screenshotDir = "reports/screenshots/";
+        new File(screenshotDir).mkdirs();
+        String screenshotPath = screenshotDir + testName + "_" + timestamp + ".png";
 
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File destFile = new File(screenshotPath);

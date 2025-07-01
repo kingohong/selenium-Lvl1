@@ -75,20 +75,6 @@
       "seatType": "Soft bed with air conditioner",
       "ticketAmount": "1",
       "departDate": "0"
-    },
-    {
-      "departFrom": "Huế",
-      "arriveAt": "Đà Nẵng",
-      "seatType": "Hard seat",
-      "ticketAmount": "2",
-      "departDate": "0"
-    },
-    {
-      "departFrom": "Đà Nẵng",
-      "arriveAt": "Quảng Ngãi",
-      "seatType": "Soft seat with air conditioner",
-      "ticketAmount": "1",
-      "departDate": "0"
     }
   ],
   "UserCanCancelATicket": [
@@ -96,20 +82,6 @@
       "departFrom": "Phan Thiết",
       "arriveAt": "Nha Trang",
       "seatType": "Soft bed with air conditioner",
-      "ticketAmount": "1",
-      "departDate": "0"
-    },
-    {
-      "departFrom": "Huế",
-      "arriveAt": "Đà Nẵng",
-      "seatType": "Hard seat",
-      "ticketAmount": "2",
-      "departDate": "0"
-    },
-    {
-      "departFrom": "Đà Nẵng",
-      "arriveAt": "Quảng Ngãi",
-      "seatType": "Soft seat with air conditioner",
       "ticketAmount": "1",
       "departDate": "0"
     }

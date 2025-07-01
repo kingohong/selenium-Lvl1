@@ -1,5 +1,6 @@
 package com.railway.pages;
 
+import com.railway.dataobject.ChangePassword;
 import com.railway.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -57,14 +58,14 @@ public class ChangePasswordPage {
         }
     }
 
-    public void changePassword(String currentPassword, String newPassword, String confirmPassword) {
-        getCurrentPasswordTextBox().sendKeys(currentPassword);
-        getNewPasswordTextBox().sendKeys(newPassword);
-        getConfirmPasswordTextBox().sendKeys(confirmPassword);
+    public void changePassword(ChangePassword changePassword) {
+        getCurrentPasswordTextBox().sendKeys(changePassword.getCurrentPassword());
+        getNewPasswordTextBox().sendKeys(changePassword.getNewPassword());
+        getConfirmPasswordTextBox().sendKeys(changePassword.getConfirmPassword());
         getChangePasswordButton().click();
     }
 
-    public void changePasswordWithCode(String newPassword, String confirmPassword, String code) {
+    public void changePasswordWithCode(ChangePassword changePassword) {
         WebDriver driver = DriverManager.getDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -72,19 +73,19 @@ public class ChangePasswordPage {
         WebElement confirmPass = getConfirmPasswordTextBox();
         WebElement resetToken = getResetTokenTextBox();
 
-        if (newPassword != null && !newPassword.isEmpty()) {
+        if (changePassword.getNewPassword() != null && !changePassword.getNewPassword().isEmpty()) {
             newPass.clear();
-            newPass.sendKeys(newPassword);
+            newPass.sendKeys(changePassword.getNewPassword());
         }
 
-        if (confirmPassword != null && !confirmPassword.isEmpty()) {
+        if (changePassword.getConfirmPassword() != null && !changePassword.getConfirmPassword().isEmpty()) {
             confirmPass.clear();
-            confirmPass.sendKeys(confirmPassword);
+            confirmPass.sendKeys(changePassword.getConfirmPassword());
         }
 
-        if (code != null && !code.isEmpty()) {
+        if (changePassword.getToken() != null && !changePassword.getToken().isEmpty()) {
             resetToken.clear();
-            resetToken.sendKeys(code);
+            resetToken.sendKeys(changePassword.getToken());
         }
 
         getResetPasswordButton().click();

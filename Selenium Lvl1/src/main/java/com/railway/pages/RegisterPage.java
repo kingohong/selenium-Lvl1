@@ -2,6 +2,8 @@ package com.railway.pages;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import com.railway.dataobject.Account;
 import com.railway.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -52,11 +54,11 @@ public class RegisterPage {
         return DriverManager.getDriver().findElement(lengthErrorMessage).getText();
     }
 
-    public void register(String email, String password, String confirmPassword, String pid) {
-        getEmailTextBox().sendKeys(email);
-        getPasswordTextBox().sendKeys(password);
-        getPasswordConfirmTextBox().sendKeys(confirmPassword);
-        getPidTextBox().sendKeys(pid);
+    public void register(Account account) {
+        getEmailTextBox().sendKeys(account.getUsername());
+        getPasswordTextBox().sendKeys(account.getPassword());
+        getPasswordConfirmTextBox().sendKeys(account.getConfirmPassword());
+        getPidTextBox().sendKeys(account.getPid());
         getRegisterButton().click();
     }
 

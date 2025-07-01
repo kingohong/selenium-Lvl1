@@ -60,6 +60,13 @@ public class TestCase16 extends TestBase {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
         String departDate = date.format(formatter);
 
+        // Check if ArriveAt dropdown is re-rendered after changing DepartFrom
+        logger.info("Check if ArriveAt dropdown is re-rendered after changing DepartFrom");
+        ReportManager.info("Check if ArriveAt dropdown is re-rendered after changing DepartFrom");
+        boolean isArriveReRendered = bookTicketPage.isArriveStationReRenderedAfterDepartChange(departFrom);
+        Assert.assertTrue(isArriveReRendered, "The 'Arrive At' dropdown must be updated after selecting 'Depart From'");
+        ReportManager.pass("'Arrive At' dropdown updated successfully after selecting 'Depart From'");
+
         bookTicketPage.bookTicket(departDate, departFrom, arriveAt, seatType, ticketAmount);
 
         ReportManager.pass("Ticket booked with: " + departFrom + " to " + arriveAt + ", " + seatType + ", " + ticketAmount + " ticket(s), on " + departDate);

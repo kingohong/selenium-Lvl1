@@ -1,5 +1,6 @@
 package com.tests.changepassword;
 
+import com.railway.dataobject.ChangePassword;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.railway.driver.DriverManager;
@@ -52,7 +53,7 @@ public class TestCase09 extends TestBase {
         logger.info("5. Click on 'Change Password' button");
         ReportManager.info("5. Click on 'Change Password' button");
 
-        changePasswordPage.changePassword("123456789", "123456789", "123456789");
+        changePasswordPage.changePassword(ChangePassword.VALID_CHANGE_PASSWORD);
 
         // Verify success message
         logger.info("Verify success message");

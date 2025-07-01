@@ -1,5 +1,6 @@
 package com.tests.login;
 
+import com.railway.dataobject.ChangePassword;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.railway.driver.DriverManager;
@@ -83,8 +84,8 @@ public class TestCase12 extends TestBase {
         ReportManager.info("7. Click 'Reset Password' button");
 
         helpers.scrollToElement(By.xpath("//input[@value='Reset Password']"));
-        changePasswordPage.getNewPasswordTextBox().clear();
-        changePasswordPage.changePasswordWithCode("123456789", "123456789", "");
+        changePasswordPage.getResetTokenTextBox().clear();
+        changePasswordPage.changePasswordWithCode(ChangePassword.CHANGE_PASSWORD_WITHOUT_TOKEN);
 
         // Verify error messages
         logger.info("Verify error messages");
