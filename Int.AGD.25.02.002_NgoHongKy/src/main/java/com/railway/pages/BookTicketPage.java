@@ -1,6 +1,5 @@
 package com.railway.pages;
 
-import com.railway.utility.Helpers;
 import org.openqa.selenium.remote.RemoteWebElement;
 import com.railway.driver.DriverManager;
 import org.openqa.selenium.By;
@@ -39,8 +38,6 @@ public class BookTicketPage {
         return DriverManager.getDriver().findElement(bookTicketButton);
     }
 
-    Helpers helpers = new Helpers();
-
     public String getBookTicketSuccessMessageText() {
         return DriverManager.getDriver().findElement(bookTicketSuccessMessage).getText();
     }
@@ -56,6 +53,28 @@ public class BookTicketPage {
     }
 
 
+    public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
+        Select departDateSelect = new Select(getDepartDate());
+        if (departDate == null || departDate.isEmpty()) {
+            departDate = departDateSelect.getOptions().get(0).getText();
+        }
+        departDateSelect.selectByVisibleText(departDate);
+
+        Select departFromSelect = new Select(getDepartFrom());
+        departFromSelect.selectByVisibleText(departFrom);
+
+        Select arriveAtSelect = new Select(getArriveAt());
+        arriveAtSelect.selectByVisibleText(arriveAt);
+
+        Select seatTypeSelect = new Select(getSeatType());
+        seatTypeSelect.selectByVisibleText(seatType);
+
+        Select ticketAmountSelect = new Select(getTicketAmount());
+        ticketAmountSelect.selectByVisibleText(ticketAmount);
+
+        getBookTicketButton().click();
+    }
+
 //    public void bookTicket(String departDate, String departFrom, String arriveAt, String seatType, String ticketAmount) {
 //        Select departDateSelect = new Select(getDepartDate());
 //        if (departDate == null || departDate.isEmpty()) {
@@ -63,44 +82,36 @@ public class BookTicketPage {
 //        }
 //        departDateSelect.selectByVisibleText(departDate);
 //
-//        Select departFromSelect = new Select(getDepartFrom());
-//        departFromSelect.selectByVisibleText(departFrom);
-//
-//        Select arriveAtSelect = new Select(getArriveAt());
-//        arriveAtSelect.selectByVisibleText(arriveAt);
-//
-//        Select seatTypeSelect = new Select(getSeatType());
-//        seatTypeSelect.selectByVisibleText(seatType);
-//
-//        Select ticketAmountSelect = new Select(getTicketAmount());
-//        ticketAmountSelect.selectByVisibleText(ticketAmount);
+//        selectOptionByText(getDepartFrom(), departFrom);
+//        selectOptionByText(getArriveAt(), arriveAt);
+//        selectOptionByText(getSeatType(), seatType);
+//        selectOptionByText(getTicketAmount(), ticketAmount);
 //
 //        getBookTicketButton().click();
 //    }
+//
+//    private void selectOptionByText(WebElement selectElement, String targetText) {
+//        Select select = new Select(selectElement);
+//        boolean found = false;
+//
+//        System.out.println("Looking for: [" + targetText + "] (length: " + targetText.trim().length() + ")");
+//        for (WebElement option : select.getOptions()) {
+//            String actualText = option.getText().trim();
+//            System.out.println("OPTION FOUND: [" + actualText + "] (length: " + actualText.length() + ")");
+//
+//            if (actualText.equalsIgnoreCase(targetText.trim())) {
+//                option.click();
+//                found = true;
+//                break;
+//            }
+//        }
+//
+//        if (!found) {
+//            throw new RuntimeException("CANNOT FOUND OPTION: " + targetText);
+//        }
+//    }
 
-    public void bookTicket(String departDate, String departFrom, String arriveAtValue, String seatType, String ticketAmount) {
-        Select departDateSelect = new Select(getDepartDate());
-        if (departDate == null || departDate.isEmpty()) {
-            departDate = departDateSelect.getOptions().get(0).getText();
-        }
-        departDateSelect.selectByVisibleText(departDate);
 
-        Select oldArriveAtSelect = new Select(getArriveAt());
-        int oldOptionCount = oldArriveAtSelect.getOptions().size();
-
-        Select departFromSelect = new Select(getDepartFrom());
-        departFromSelect.selectByVisibleText(departFrom);
-
-        helpers.waitForDropdownOptionsChanged(arriveAt, oldOptionCount);
-
-        Select arriveAtSelect = new Select(getArriveAt());
-        arriveAtSelect.selectByVisibleText(arriveAtValue);
-
-        new Select(getSeatType()).selectByVisibleText(seatType);
-        new Select(getTicketAmount()).selectByVisibleText(ticketAmount);
-
-        getBookTicketButton().click();
-    }
 
     public boolean isBookingTableCorrect(String departFrom, String arriveAt, String seatType, String departDate, String amount) {
         WebElement row = DriverManager.getDriver().findElement(By.xpath("//table[@class='MyTable WideTable']//tr[td]"));

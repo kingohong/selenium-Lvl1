@@ -60,7 +60,7 @@ public class TestCase09 extends TestBase {
         ReportManager.info("Verify success message");
 
         String actualMessage = changePasswordPage.getPasswordUpdatedMessageText();
-        String expectedMessage = "Your password has been updated";
+        String expectedMessage = "Your password has been updated!";
 
         Assert.assertEquals(actualMessage.trim(), expectedMessage, "Message does not match");
         ReportManager.pass("Password updated successfully with message: " + actualMessage);

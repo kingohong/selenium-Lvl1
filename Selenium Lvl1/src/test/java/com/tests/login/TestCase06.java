@@ -53,7 +53,7 @@ public class TestCase06 extends TestBase {
         //Verify "Logout" tab is displayed
         logger.info("Verify 'Logout' tab is displayed");
         ReportManager.info("Verify 'Logout' tab is displayed");
-        Assert.assertTrue(basePage.isTabDisplayed("Logout"), "Logout tab is not displayed");
+        Assert.assertTrue(basePage.isTabDisplayed("Log out"), "Logout tab is not displayed");
 
         ReportManager.pass("All additional tabs are displayed correctly after login.");
 

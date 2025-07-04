@@ -49,7 +49,6 @@ public class AppListener implements ITestListener {
         test.get().addScreenCaptureFromPath(relativePath, "Failed Screenshot");
     }
 
-
     @Override
     public void onTestSkipped(ITestResult result) {
         test.get().skip("Test skipped: " + result.getThrowable());

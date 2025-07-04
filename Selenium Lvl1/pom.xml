@@ -69,6 +69,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.mailslurp</groupId>
+            <artifactId>mailslurp-client-java</artifactId>
+            <version>16.2.1</version>
+        </dependency>
+
+
 
     </dependencies>
 
